@@ -1,50 +1,38 @@
-// Note: This example requires that you consent to location sharing when
-// prompted by your browser. If you see the error "The Geolocation service
-// failed.", it means you probably did not give permission for the browser to
-// locate you.
-var map, infoWindow;
+var map = L.map( 'map', {
+    center: [20.0, 5.0],
+    minZoom: 2,
+    zoom: 2
+});
 
-function initMap() {
-    var myLatLng = {lat: 37.573, lng: -119.665};
+L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    subdomains: ['a','b','c']
+}).addTo( map );
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -34.397, lng: 150.644},
-        zoom: 6
-    });
+var markers = [
+   {
+     "name": "Canada",
+     "url": "https://en.wikipedia.org/wiki/Canada",
+     "lat": 56.130366,
+     "lng": -106.346771
+   },
+   {
+     "name": "Anguilla",
+     "url": "https://en.wikipedia.org/wiki/Anguilla",
+     "lat": 18.220554,
+     "lng": -63.068615
+   },
+   {
+     "name": "Japan",
+     "url": "https://en.wikipedia.org/wiki/Japan",
+     "lat": 36.204824,
+     "lng": 138.252924
+   }
+];
 
-    var marker = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        title: 'Hello World!'
-    });
-
-    infoWindow = new google.maps.InfoWindow;
-
-// Try HTML5 geolocation.
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-        var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-        };
-
-    infoWindow.setPosition(pos);
-    infoWindow.setContent('Location found.');
-    infoWindow.open(map);
-    map.setCenter(pos);
-  }, function() {
-    handleLocationError(true, infoWindow, map.getCenter());
-  });
-} else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-}
-}
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    infoWindow.setPosition(pos);
-    infoWindow.setContent(browserHasGeolocation ?
-                      'Error: The Geolocation service failed.' :
-                      'Error: Your browser doesn\'t support geolocation.');
-                      infoWindow.open(map);
+for ( var i=0; i < markers.length; i++ )
+{
+   L.marker( [markers[i].lat, markers[i].lng] )
+      .bindPopup( '<a href="' + markers[i].url + '" target="_blank">' + markers[i].name + '</a>' )
+      .addTo( map );
 }
