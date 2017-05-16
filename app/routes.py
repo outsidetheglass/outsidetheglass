@@ -9,7 +9,6 @@ from .forms import *
 @app.route('/')
 def index():
     form = StateForm()
-    # print(form)
     query = get_all_campsites()
     content = {"form": form}
     return render_template('index.html', content=content)
