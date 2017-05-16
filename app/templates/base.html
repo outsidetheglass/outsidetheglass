@@ -22,6 +22,7 @@
     <body>
         {% block index %}{% endblock %}
 
+        <!-- Load Static Javascript Files -->
         <script type="text/javascript" src="{{ url_for('static', filename='js/map.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/markers.js') }}"></script>
     </body>
