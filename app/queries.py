@@ -1,6 +1,7 @@
 # queries.py
 
 from app import app, models, session
+from sqlalchemy import func
 from .models import *
 
 def get_all_campsites():
@@ -13,7 +14,6 @@ def get_all_campsites():
             campsite_dict['lng']  = campsite.FacilityLongitude
             markers.append(campsite_dict)
             campsite_dict = {}
-    print(markers)
     return markers
 
 def get_city_sites():

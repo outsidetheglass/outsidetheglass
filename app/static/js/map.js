@@ -1,13 +1,22 @@
 var map = L.map( 'map', {
-  center: [20.0, 5.0],
+  center: [39.828, -98.580],
   minZoom: 2,
-  zoom: 2
+  zoom: 3
 })
 
 L.tileLayer( 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   subdomains: ['a', 'b', 'c']
 }).addTo( map )
+
+// Geolocation
+var lc = L.control.locate({
+    position: 'topleft',
+    strings: {
+        title: "Locate me!"
+    },
+    locateOptions: {maxZoom:12}
+}).addTo(map);
 
 var myURL = "/static/"
 
@@ -39,3 +48,5 @@ for ( var i = 0; i < markers.length; i++ )
 }
 
 map.addLayer( markerClusters );
+
+var latLng = toLatLng(6693172.2381477, -264291.81938326, map);
