@@ -13,6 +13,7 @@ def get_all_campsites():
             campsite_dict['lng']  = campsite.FacilityLongitude
             markers.append(campsite_dict)
             campsite_dict = {}
+    print(markers)
     return markers
 
 def get_city_sites():
