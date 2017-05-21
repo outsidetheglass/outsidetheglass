@@ -6,6 +6,7 @@ from .models import *
 from .queries import *
 from .forms import *
 
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = StateForm(request.form, csrf_enabled=True)
