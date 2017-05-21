@@ -9,16 +9,11 @@ from .forms import *
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = StateForm(request.form, csrf_enabled=True)
-    name, state = form.name.data, form.state.data
+    name, state, org = form.name.data, form.state.data, form.org.data
 
-    print("name")
-    print(name)
-    print("state")
-    print(state)
     # --- POST ---
     if request.method == 'POST':
-        query = create_facility_dict(name, state)
-
+        query = create_facility_dict(name, state, org)
     # --- GET ---
     content = {"form": form}
     return render_template('index.html', content=content)
