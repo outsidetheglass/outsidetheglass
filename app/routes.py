@@ -12,15 +12,15 @@ from .forms import *
 def index():
     form = StateForm(request.form, csrf_enabled=True)
     name, state, org = form.name.data, form.state.data, form.org.data
-
-    rendered = render_component(
-          os.path.join(os.getcwd(), 'static', 'js', 'CommentBox.jsx'),
-          {
-              'comments': comments,
-              'url': '/comment/',
-          },
-          to_static_markup=True,
-    )
+    comments=None
+    # rendered = render_component(
+    #       os.path.join(os.getcwd(), 'app', 'static', 'js', 'CommentBox.jsx'),
+    #       {
+    #           'comments': comments,
+    #           'url': '/comment/',
+    #       },
+    #       to_static_markup=True,
+    # )
 
     # --- POST ---
     if request.method == 'POST':
@@ -28,5 +28,5 @@ def index():
         print(query)
 
     # --- GET ---
-    content = {"form": form, "rendered": rendered}
+    content = {"form": form}
     return render_template('index.html', content=content)
