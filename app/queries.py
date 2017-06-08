@@ -3,6 +3,7 @@
 from app import app, models, session
 from sqlalchemy import func
 from .models import *
+from .attributes import *
 
 def get_distinct_facilities():
     return session.query(Campsite.FacilityID, Campsite.FacilityName, Campsite.FacilityLatitude, Campsite.FacilityLongitude, Campsite.AddressStateCode, Campsite.OrgAbbrevName).distinct()
@@ -45,6 +46,7 @@ def create_facility_dict(name, state, org):
             facility_dict['name'] = facility.FacilityName
             facility_dict['state'] = facility.AddressStateCode
             facility_dict['org'] = facility.OrgAbbrevName
+            facility_dict['url'] = get_url(facility.FacilityID, facility.FacilityName)
             facility_dict['lat']  = facility.FacilityLatitude
             facility_dict['lng']  = facility.FacilityLongitude
             markers.append(facility_dict)

@@ -13,6 +13,7 @@ app = Flask(__name__)
 # Config
 app.config.from_object('config')
 
+# SQL Alachemy
 db = SQLAlchemy()
 
 # Create Session
