@@ -1,20 +1,33 @@
 {% extends "base.html" %}
 {% block index %}
 
-  <h1>Campsite Map</h1>
+  <h1>Meteorite Landings</h1>
+  <!--
+  TODO Delete this after proving REACT container worcs
+    Demonstrates how ReactJS is mounted to
+    a container and takes it from there.
+-->
+<div id="greeting-div"></div>
 
+
+<!-- Year Slider-->
   <div class="filter">
     <form method="post">
-      {{ content.form.name.label }}
-      {{ content.form.name }}
-      {{ content.form.state.label }}
-      {{ content.form.state }}
-      {{ content.form.org.label }}
-      {{ content.form.org }}
-      {{ content.form.submit }}
+      {{ content.form.year.label }}
+      {{ content.form.year(min=301, max=2012, oninput="outputUpdate(value)") }}
+      <output for="year" id="selected-year">{{ content.form.year.data }}</output>
     </form>
   </div>
 
+  <!-- Leaflet Map-->
   <div class="map" id="map"></div>
+
+  <div class="container">
+		<h1>Python + React example</h1>
+        <div id="app-container">{{ rendered|safe }}</div>
+	</div>
+  
+
+  <div id="embedded_posts">{{ content.data|tojson|safe }}</div>
 
 {% endblock %}

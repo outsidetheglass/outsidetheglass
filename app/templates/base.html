@@ -1,43 +1,49 @@
 <html lang="en-US">
     <head>
-        <title>Campsites</title>
+        <title>Meteorites</title>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-        <!-- Load Bootstrap -->
-        <link rel="stylesheet" href="app/static/css/bootstrap.css">
-        <!-- Load Static CSS File  -->
-        <link rel="stylesheet" href="app/static/css/app.css">
-        <!-- Load Static CSS File -->
+        <!-- Load Bootstrap-->
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+        <!-- Load Static CSS File-->
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" />
-        <!-- Leaflet Map Style -->
+        <!-- Leaflet Map Style-->
         <link rel="stylesheet" type="text/css" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-        <!-- Leaflet Cluster Styles -->
+        <!-- Leaflet Cluster Styles-->
         <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css" />
-        <!-- Leaflet Cluster Buttons -->
+        <!-- Leaflet Cluster Buttons-->
         <link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css" />
-        <!-- Leaflet Geolocate Button -->
+        <!-- Leaflet Geolocate Button-->
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Leaflet Geolocation Icon -->
+        <!-- Leaflet Geolocation Icon-->
         <link rel="stylesheet" href="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.css" />
 
-        <!-- Load Jquery -->
-        <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
-        <!-- Leaflet Map -->
+        <!-- Load Jquery-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js" type="text/javascript"></script>
+        <!-- Leaflet Map-->
         <script type='text/javascript' src='http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js'></script>
-        <!-- Leaflet Clustering -->
+        <!-- Leaflet Clustering-->
         <script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js'></script>
-        <!-- <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script> -->
-        <!-- Leaflet Geolocate -->
+        <!--Stevie's leaflet shit-->
+        <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
+        <!-- Leaflet Geolocate-->
         <script src="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
+        <script src="https://fb.me/react-15.0.0.js"></script>
+        <script src="https://fb.me/react-dom-15.0.0.js"></script>
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@0.7.7/dist/leaflet.css" />
     </head>
 
     <body>
         {% block index %}{% endblock %}
 
-        <!-- Load Static Javascript Files -->
-        <script type="text/javascript" src="{{ url_for('static', filename='js/map.js') }}"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename='js/markers.js') }}"></script>
+
+        <!-- Load Static Babel/Javascript Files-->
+
+        <script type="text/babel" src="{{ url_for('static', filename='js/src/LeafletMap.jsx') }}"></script>
+
+        <script type="text/javascript" src="{{ url_for('static', filename='js/dist/bundle.js')}}"></script>
+
     </body>
 
 </html>
