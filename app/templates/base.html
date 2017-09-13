@@ -30,7 +30,11 @@
         <script src="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
         <script src="https://fb.me/react-15.0.0.js"></script>
         <script src="https://fb.me/react-dom-15.0.0.js"></script>
+<<<<<<< HEAD
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+=======
+
+>>>>>>> 54b10ccb85f64731fa05471a7400183bc3cd60c0
         <link rel="stylesheet" href="https://unpkg.com/leaflet@0.7.7/dist/leaflet.css" />
     </head>
 
@@ -38,6 +42,7 @@
         {% block index %}{% endblock %}
 
 
+<<<<<<< HEAD
         <!-- Load Static Javascript Files-->
         <script type="text/javascript" src="{{ url_for('static', filename='js/map.js') }}"></script>
         <script type="text/babel" src="{{ url_for('static', filename='js/src/Comment.jsx') }}"></script>
@@ -49,6 +54,13 @@
 
         <script type="text/javascript" src="{{ url_for('static', filename='js/markers.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/slider.js') }}"></script>
+=======
+        <!-- Load Static Babel/Javascript Files-->
+
+        <script type="text/babel" src="{{ url_for('static', filename='js/src/LeafletMap.jsx') }}"></script>
+
+        <script type="text/javascript" src="{{ url_for('static', filename='js/dist/bundle.js')}}"></script>
+>>>>>>> 54b10ccb85f64731fa05471a7400183bc3cd60c0
 
     </body>
 
