@@ -1,16 +1,16 @@
 # models.py
 
 from app import app, db
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Float
 
-class Campsite(db.Model):
-    __tablename__ = 'campsites'
-    CampsiteID = Column(Integer, primary_key=True)
-    CampsiteName = Column(String(255))
-    CampsiteType = Column(String(255))
-    FacilityID = Column(String(255))
-    FacilityName = Column(String(255))
-    AddressStateCode = Column(String(255))
-    FacilityLatitude = Column(Integer)
-    FacilityLongitude = Column(Integer)
-    OrgAbbrevName = Column(String(255))
+class Meteorites(db.Model):
+    __tablename__ = 'meteorite_landings'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(255))
+    name_type = Column(String(1000))
+    rec_class = Column(String(255))
+    mass = Column(String(255))
+    fall = Column(String(255))
+    year = Column(String(255))
+    latitude = Column(Float)
+    longitude = Column(Float)

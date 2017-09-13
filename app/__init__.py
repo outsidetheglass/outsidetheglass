@@ -6,7 +6,6 @@ from sqlalchemy.orm import Session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from flask_sqlalchemy import SQLAlchemy
 
-
 # Create instance of Flask class
 app = Flask(__name__)
 
